@@ -39,9 +39,12 @@
 **Descrição:**
 O campo de nome da turma aceita caracteres especiais, emojis e caracteres de outros idiomas (chinês: "不要點擊"), resultando em um título visualmente quebrado e pouco profissional.
 
+**Imagem do Erro:**
+![Bug 001 - Nome da Turma](evidencias/evidencia1.png)
+
 **Passos para Reproduzir:**
 1. Acessar a tela de criação/edição de turma
-2. Inserir no campo nome: "👆不要點擊🎋👆"
+2. Inserir no campo nome: "不要點擊🎋👆"
 3. Salvar a turma
 
 **Resultado Esperado:** O sistema deve validar e rejeitar caracteres especiais/emojis nos nomes das turmas.
@@ -58,9 +61,12 @@ O campo de nome da turma aceita caracteres especiais, emojis e caracteres de out
 
 **Descrição:**
 O sistema permite cadastrar uma criança com:
-- Nome contendo emojis e caracteres chineses: "不要點擊🎋👆"
+- Nome contendo emojis e caracteres chineses: "不要點擊🎋"
 - Idade de 525 anos
 - Campo "Responsável" também contendo emojis e caracteres especiais
+
+**Imagem do Erro:**
+![Bug 002 - Dados da Criança](evidencias/evidencia2.png)
 
 **Passos para Reproduzir:**
 1. Acessar a turma criada no Bug #001
@@ -86,6 +92,9 @@ O sistema permite cadastrar uma criança com:
 **Descrição:**
 O sistema permite cadastrar o usuário principal "Anp" com data de nascimento 09/10/1500, resultando em uma idade impossível (~525 anos).
 
+**Imagem do Erro:**
+![Bug 003 - Data 1500](evidencias/evidencia3.png)
+
 **Passos para Reproduzir:**
 1. Acessar o perfil do usuário
 2. Editar a data de nascimento
@@ -106,6 +115,9 @@ O sistema permite cadastrar o usuário principal "Anp" com data de nascimento 09
 
 **Descrição:**
 Após editar o perfil do usuário "Anp", a data de nascimento foi alterada para 00/00/0000, um valor completamente inválido.
+
+**Imagem do Erro:**
+![Bug 004 - Data Inválida](evidencias/evidencia4.png)
 
 **Passos para Reproduzir:**
 1. Acessar o perfil do usuário "Anp"
