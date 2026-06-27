@@ -21,8 +21,8 @@
 
 | ID | Arquivo de Evidência | Severidade | Categoria | Descrição |
 |----|----------------------|------------|-----------|-----------|
-| 001 | `evidencias/evidencia1.png` | Baixa | UI/Validação | Caracteres especiais e emojis aceitos no nome da turma |
-| 002 | `evidencias/evidencia2.png` | Baixa | Validação | Emojis e caracteres especiais aceitos nos campos de criança e responsável |
+| 001 | `evidencias/evidencia1.png` | Baixa | UI/Layout | Campo de pesquisa com problema de posicionamento (desalinhado para baixo) |
+| 002 | `evidencias/evidencia2.png` | Baixa | Validação | Caracteres especiais e emojis aceitos no nome da turma e dados da criança |
 | 003 | `evidencias/evidencia3.png` | Média | Validação de Dados | Data de nascimento aceita o ano 1500 |
 | 004 | `evidencias/evidencia4.png` | Média | Validação de Dados | Data de nascimento aceita valor inválido 00/00/0000 |
 
@@ -30,56 +30,52 @@
 
 ## Relatórios Detalhados dos Bugs
 
-### Bug #001 - Nome da Turma com Caracteres Especiais e Emojis
+### Bug #001 - Campo de Pesquisa com Problema de Posicionamento
 
 **Evidência:** `evidencias/evidencia1.png`
 
-**Severidade:** Baixa (UI/Validação)
+**Severidade:** Baixa (UI/Layout)
 
 **Descrição:**
-O campo de nome da turma aceita caracteres especiais, emojis e caracteres de outros idiomas (chinês: "不要點擊"), resultando em um título visualmente quebrado e pouco profissional.
+O campo de pesquisa "Pesquisar por turma..." apresenta um problema estético de layout, estando posicionado mais baixo do que o esperado, como se houvesse uma tabulação excessiva ou margem incorreta.
 
 **Imagem do Erro:**
-![Bug 001 - Nome da Turma](evidencias/evidencia1.png)
+![Bug 001 - Problema de Layout](evidencias/evidencia1.png)
 
-**Passos para Reproduzir:**
-1. Acessar a tela de criação/edição de turma
-2. Inserir no campo nome: "不要點擊🎋👆"
-3. Salvar a turma
+**Resultado Esperado:** O campo de pesquisa deve estar alinhado corretamente com os demais elementos da interface.
 
-**Resultado Esperado:** O sistema deve validar e rejeitar caracteres especiais/emojis nos nomes das turmas.
-
-**Resultado Obtido:** O nome foi salvo e exibido com caracteres estranhos no cabeçalho da tela.
+**Resultado Obtido:** Campo desalinhado, posicionado mais abaixo do que o padrão visual da aplicação.
 
 ---
 
-### Bug #002 - Dados da Criança com Emojis e Valores Inválidos
+### Bug #002 - Caracteres Especiais e Emojis Aceitos no Nome da Turma e Dados da Criança
 
 **Evidência:** `evidencias/evidencia2.png`
 
-**Severidade:** Baixa (UI/Validação)
+**Severidade:** Baixa (Validação)
 
 **Descrição:**
-O sistema permite cadastrar uma criança com:
-- Nome contendo emojis e caracteres chineses: "不要點擊🎋"
-- Idade de 525 anos
-- Campo "Responsável" também contendo emojis e caracteres especiais
+O sistema permite o cadastro de:
+- **Nome da turma** com caracteres especiais, emojis e caracteres de outros idiomas (chinês: "不要點擊🎋")
+- **Dados da criança** com os mesmos problemas: nome contendo emojis e caracteres especiais
+- **Campo "Responsável"** também aceitando caracteres inválidos
+
+A imagem mostra ambos os problemas concentrados na mesma tela: o nome da turma no header e os dados da criança "Zeca Luiz" com idade de 525 anos.
 
 **Imagem do Erro:**
-![Bug 002 - Dados da Criança](evidencias/evidencia2.png)
+![Bug 002 - Caracteres Especiais](evidencias/evidencia2.png)
 
 **Passos para Reproduzir:**
-1. Acessar a turma criada no Bug #001
-2. Cadastrar uma criança com o nome "不要點擊🎋👆"
-3. Preencher a data de nascimento com o ano 1500
-4. Salvar
+1. Criar turma com nome contendo emojis e caracteres especiais
+2. Cadastrar criança na turma com dados inválidos
+3. Visualizar a tela de detalhes da turma
 
 **Resultado Esperado:**
-- Validação de nome (apenas letras)
+- Validação de nomes (apenas letras, números e caracteres acentuados)
+- Rejeição de emojis e caracteres especiais
 - Limites de idade razoáveis
-- Campo de responsável sem caracteres especiais
 
-**Resultado Obtido:** Todos os dados foram aceitos e exibidos normalmente.
+**Resultado Obtido:** Todos os dados inválidos foram aceitos e exibidos normalmente na interface.
 
 ---
 
@@ -130,3 +126,4 @@ Após editar o perfil do usuário "Anp", a data de nascimento foi alterada para 
 **Resultado Obtido:** A data "00/00/0000" foi salva e exibida no perfil.
 
 ---
+
